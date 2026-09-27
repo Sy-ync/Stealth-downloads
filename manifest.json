@@ -1,7 +1,7 @@
 {
     "manifest_version":  3,
     "name":  "Page Translator",
-    "version":  "1.1.9",
+    "version":  "1.1.11",
     "description":  "Translates selected content on any page.",
     "permissions":  [
                         "activeTab",
@@ -17,18 +17,28 @@
                    },
     "content_scripts":  [
                             {
-                                "matches":  "\u003call_urls\u003e",
-                                "js":  "content.js",
+                                "matches":  [
+                                                "\u003call_urls\u003e"
+                                            ],
+                                "js":  [
+                                           "content.js"
+                                       ],
                                 "run_at":  "document_end"
                             }
                         ],
     "commands":  {
                      "activate":  {
-                                      "suggested_key":  "@{default=Ctrl+Shift+Z; chromeos=Ctrl+Shift+Z}",
+                                      "suggested_key":  {
+                                                            "default":  "Ctrl+Shift+Z",
+                                                            "chromeos":  "Ctrl+Shift+Z"
+                                                        },
                                       "description":  "Capture area"
                                   },
                      "prompt":  {
-                                    "suggested_key":  "@{default=Ctrl+Shift+Space; chromeos=Ctrl+Shift+Space}",
+                                    "suggested_key":  {
+                                                          "default":  "Ctrl+Shift+Space",
+                                                          "chromeos":  "Ctrl+Shift+Space"
+                                                      },
                                     "description":  "Custom prompt"
                                 }
                  },
